@@ -5,7 +5,7 @@ const { createApp } = Vue;
 createApp ({
     data() {
         return {
-            message: 'This is a randomly created list of mails!',
+            message: 'Click this title to get your random mails list!',
 
             randomMailFromResponse : null,
 
@@ -41,7 +41,6 @@ createApp ({
     },
 
     created() {
-        this.getRandomMail()
     }
 }).mount ('#app')
 

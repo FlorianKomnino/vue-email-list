@@ -21,8 +21,8 @@
                 <div class="row">
                     <div class="col">
                         <h1 class="text-center" @click="randomMailsListPopulator()">{{ message }}</h1>
-                        <ul>
-                            <li>{{randomMailFromResponse}}</li>
+                        <ul v-if="randomMailsList.length == 10">
+                            <li v-for="randomMail, index in randomMailsList">{{randomMailsList[index]}}</li>
                         </ul>
                     </div>
                 </div>
