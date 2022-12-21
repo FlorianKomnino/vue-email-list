@@ -5,24 +5,25 @@ const { createApp } = Vue;
 createApp ({
     data() {
         return {
-            message: 'Hello Vue!',
+            message: 'This is a randomly created list of mails!',
 
             randomMailFromResponse : null,
+
         }
     },
     
     methods: {
-        getRandomMail () {
-            axios.get("https://flynn.boolean.careers/exercises/api/random/mail")
-            .then(function(response) {
+        async getRandomMail () {
+            await axios.get("https://flynn.boolean.careers/exercises/api/random/mail")
+            .then((response) => {
                 this.randomMailFromResponse = response.data.response;
-                console.log(randomMailFromResponse);
+                console.log(this.randomMailFromResponse);
             });
         }
     },
 
     created() {
-        this.getRandomMail();
+        this.getRandomMail()
     }
 }).mount ('#app')
 
