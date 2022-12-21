@@ -11,7 +11,7 @@
     <!-- link to CSS -->
     <link rel="stylesheet" href="./css/style.css">
 
-    <title>setup repo</title>
+    <title>vue-email-list</title>
 </head>
 
 <body>
@@ -20,7 +20,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <h1 class="text-center">{{ message }}</h1>
+                        <h1 class="text-center" @click="randomMailsListPopulator()">{{ message }}</h1>
                         <ul>
                             <li>{{randomMailFromResponse}}</li>
                         </ul>

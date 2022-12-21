@@ -9,6 +9,10 @@ createApp ({
 
             randomMailFromResponse : null,
 
+            randomMailsListPromises: [],
+
+            randomMailsList: [],
+
         }
     },
     
@@ -19,6 +23,20 @@ createApp ({
                 this.randomMailFromResponse = response.data.response;
                 console.log(this.randomMailFromResponse);
             });
+        },
+
+        async randomMailsListPopulator () {
+            for (let i=0 ; i<10 ; i++) {
+                // add promises one by one
+                this.randomMailsListPromises.push(
+                    axios.get(`https://flynn.boolean.careers/exercises/api/random/mail`)
+                    // we only need the .data.response from the response
+                    .then((response) => (response.data.response))
+                );
+                this.randomMailsList = await axios.all(this.randomMailsListPromises);
+
+            }
+            console.log(this.randomMailsList);
         }
     },
 
